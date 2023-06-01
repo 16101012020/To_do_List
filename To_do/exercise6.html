@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+    <title>Todo List</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Rajdhani', sans-serif;
+    }
+.img_wrap img {
+  width: 100%;
+  opacity: 0.8;
+  position: relative;
+  object-fit: cover;
+}
+
+    .nav {
+        top:0;
+        position: absolute;
+        font-size: 13px;
+        width: 100%;
+        height: 8%;
+        background-color: rgba(0, 0, 0, .5);
+        margin-bottom:3%;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    h1{
+      font-size: 2vw;
+    }
+  .image {
+        width: 3.5%;
+        border-radius: 50%;
+        padding: 5px;
+        align-items: center;
+    }
+    .form_container{
+      position: absolute;
+      margin-bottom:3%;
+      top:15%;
+      width: 26%;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, .5);
+      color: #fff;
+      padding: 1%;
+    }
+    label and input{
+      position: relative;
+      float: left;
+    }
+    .middle{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    input {
+        display: flex;
+        flex-direction: column;
+        margin: 2%;
+        width:80%;
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 2.4vh;
+        border-radius: 2px;
+        border: none;
+        padding: 0.5%;
+    }
+    a{
+        font-family: 'Rajdhani', sans-serif;
+        border-radius: 2px;
+        text-decoration: none;
+        color: white;
+        background-color: rgb(0, 117, 156);
+        padding: 1%;
+        position: relative;
+        float:right;
+        border: none;
+        margin: 1%;
+        margin: 0%;
+    }
+    .container {
+        display: flex;
+        width: 100%;
+        height: auto;
+        gap:2%;
+        position: absolute;
+        top:49%;
+    }
+    .card {
+        border: 2px solid white;
+        border-radius: 10px;;
+        background-color: rgba(0, 0, 0, .5);
+        color: #fff;
+        height: 300px;
+        width: 50%;
+        justify-content: center;
+    }
+
+    li {
+        border: 2px solid grey;
+        margin: 5px;
+        border-radius: 5px;;
+        padding: 5px;
+        list-style: none;
+    }
+   #donelist{
+    font-size: 2vw;
+   }
+    .bton {
+        float: right;
+        color: white;
+        border-radius: 5px;
+        font-family: 'Rajdhani', sans-serif;
+        background-color: green;
+        border: none;
+    }
+    .btonred {
+        float: right;
+        color: white;
+        font-family: 'Rajdhani', sans-serif;
+        background-color: rgb(136, 0, 0);
+        border: none;
+    }
+    @media only screen and (max-width:900px) {
+      .form_container{
+        position: absolute;
+        top:10%;
+        padding:1%;
+        display: flex;
+        height: 70%;
+        margin-bottom: 8%;
+        width:40%;
+      }
+      .nav{
+      font-size: 3vw;
+    }
+      input {
+        padding:0;
+        width:100%;
+        font-size: 1.5vw;
+        height: auto;
+      }
+      label{
+        font-size: 2vw;
+      }
+      a{
+        margin-top:2%;
+        position: relative;
+        float: right;
+        font-size: 1.5vw;
+      }
+      .container{
+        position: absolute;
+        top:40%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        height: 50%;
+      }
+    }
+    @media screen and ((max-width:1100px) or (min-height:900px)){
+      .img_wrap{
+        display: none;
+      }
+      .card{
+        width: 90%;
+      }
+      li{
+        font-size: 2vh;
+      }
+      .image{
+        width:10%;
+      }
+      body{
+        background-color: rgb(25, 28, 29); 
+      }
+      .nav h1{
+      font-size: 4vh;
+    }
+      input{
+        font-size: 1.5vh;
+        padding: 2px;;
+      }
+      label{
+        font-size: 2.8vh;
+      }
+      .form_container{
+        height:22%;
+        width:40%;
+      }
+      a{
+        font-size: 1.5vh;
+      }
+      .container{
+        position: absolute;
+        top:35%;
+        height: 50%;
+        margin-top: 4%;
+      }
+    }
+    @media screen and (max-width:450px) {
+      .form_container{
+        width:100%;
+      }
+      li{
+        font-size: 2vh;
+      }
+      .card{
+        width: 90%;
+      }
+      .nav{
+        font-size: 4.5vw;
+      }
+    }
+</style>
+<body>
+  <div class="main">
+    <div class="img_wrap">
+      <img src="https://cdn.pixabay.com/photo/2019/04/11/22/29/airport-4120835_960_720.jpg" alt="">
+    </div>
+    <div class="middle"><div class="nav">
+    <img class="image" src="https://cdn.pixabay.com/photo/2018/02/23/09/14/finger-3175060_960_720.jpg" alt="logo">
+<h1 style="padding: 0.7%;">ToDo List</h1>
+</div>
+<div class="form_container">
+    <form>
+        <label for="key">Title</label>
+        <input  id="title" type="text" name="key" placeholder="Enter the title">
+        <label  for="value">Description</label>
+        <input  id="desc" type="text" name="value" placeholder="Enter the Description">
+        <a href="#" class="btn" id="submit"  type="submit">SUBMIT</a>
+    </form>
+</div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h3 style="text-align: center;">To do</h3>
+        <ol id="doneList">
+        </ol>
+    </div>
+    <div class="card">
+        <h3 style="text-align: center;">Done</h3>
+        <ol  id="deletes"></ol>
+    </div>
+</div>
+</div>
+<script>
+// Load existing cards from local storage
+document.addEventListener("DOMContentLoaded", function() {
+  loadCardsFromLocalStorage();
+});
+
+submit.addEventListener("click", function(e) {
+  e.preventDefault();
+  var title = document.getElementById("title").value;
+  var desc = document.getElementById("desc").value;
+
+  var cardId = "card-" + Date.now();
+
+  var card = {
+    title: title,
+    desc: desc
+  };
+
+  if (title === "" || desc === "") {
+    return;
+  }
+  localStorage.setItem(cardId, JSON.stringify(card));
+
+  document.getElementById("title").value = "";
+  document.getElementById("desc").value = "";
+
+  addToDoneList(cardId, card.title, card.desc);
+});
+
+function loadCardsFromLocalStorage() {
+  var doneList = document.getElementById("doneList");
+
+  doneList.innerHTML = "";
+
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var card = JSON.parse(localStorage.getItem(key));
+
+    // Add the card to the done list
+    addToDoneList(key, card.title, card.desc);
+  }
+}
+
+function addToDoneList(cardId, title, description) {
+  var doneList = document.getElementById("doneList");
+
+  // Create a new list item element
+  var li = document.createElement("li");
+
+  // Create a span element for the title
+  var titleSpan = document.createElement("span");
+  titleSpan.textContent = title + ": ";
+
+  // Create a span element for the description
+  var descSpan = document.createElement("span");
+  descSpan.textContent = description;
+
+  // Create a delete button for the list item
+  var doneButton = document.createElement("button");
+  doneButton.classList.add("bton");
+  doneButton.textContent = "DONE";
+
+  doneButton.addEventListener("click", function () {
+    // Move the item from "To do" list to "Done" list
+    moveItemToDone(cardId);
+    doneList.removeChild(li);
+  });
+
+  // Append the elements to the list item
+  li.appendChild(titleSpan);
+  li.appendChild(descSpan);
+  li.appendChild(doneButton);
+
+  // Append the list item to the done list
+  doneList.appendChild(li);
+}
+
+function moveItemToDone(cardId) {
+  var deletes = document.getElementById("deletes");
+  var card = JSON.parse(localStorage.getItem(cardId));
+
+  // Create a new list item element
+  var li = document.createElement("li");
+
+  // Create a span element for the title
+  var titleSpan = document.createElement("span");
+  titleSpan.textContent = card.title + ": ";
+
+  // Create a span element for the description
+  var descSpan = document.createElement("span");
+  descSpan.textContent = card.desc;
+
+  var deleteButton = document.createElement("button");
+  deleteButton.classList.add("btonred");
+  deleteButton.textContent = "DELETE";
+
+  deleteButton.addEventListener("click", function () {
+    localStorage.removeItem(cardId);
+    deletes.removeChild(li);
+  });
+
+  // Append the elements to the list item
+  li.appendChild(titleSpan);
+  li.appendChild(descSpan);
+  li.appendChild(deleteButton);
+
+  // Append the list item to the deletes list
+  deletes.appendChild(li);
+}
+
+</script>
+</body>
+</html>
